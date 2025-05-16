@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard Dosen</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0f172a] text-white font-sans">
+
+  <div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-30 w-64 bg-[#0f172a] border-r border-cyan-800 p-6 space-y-6 transform -translate-x-full md:relative md:translate-x-0 transition-transform duration-300 ease-in-out">
+      <div class="text-center">
+        <img src="https://i.pravatar.cc/100?img=12" alt="Foto Dosen" class="w-20 h-20 rounded-full mx-auto mb-2">
+        <h2 class="font-semibold text-lg"><?= htmlspecialchars($_SESSION['nama']) ?></h2>
+        <p class="text-sm text-gray-400"><?= htmlspecialchars($_SESSION['role']) ?></p>
+      </div>
+
+      <nav class="space-y-2">
+        <a href="dashboard.html" class="flex items-center px-4 py-2 bg-cyan-600 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M3 6h18M3 18h18" />
+          </svg>
+          Dashboard
+        </a>
+        <a href="tugas.html" class="flex items-center px-4 py-2 hover:bg-gray-800 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6h13M9 5v2m0 4v2" />
+          </svg>
+          Tugas
+        </a>
+        <a href="pemberitahuan.html" class="flex items-center px-4 py-2 hover:bg-gray-800 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3M3 11h18M5 19h14a2 2 0 002-2v-5H3v5a2 2 0 002 2z" />
+          </svg>
+          Pembaharuan
+        </a>
+        <a href="mahasiswa.html" class="flex items-center px-4 py-2 hover:bg-gray-800 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 15c2.21 0 4.29.535 6.121 1.484M15 12a3 3 0 10-6 0 3 3 0 006 0z" />
+          </svg>
+          Mahasiswa
+        </a>
+
+        <!-- Logout -->
+        <a href="index.html" class="flex items-center px-4 py-2 hover:bg-red-800 rounded-lg text-red-400 mt-10">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a1 1 0 001 1h3m-4-6V9a1 1 0 00-1-1H6m7 6v1" />
+          </svg>
+          Keluar
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Content Wrapper -->
+    <div class="flex-1 flex flex-col">
+
+      <!-- Top Bar for mobile menu toggle -->
+      <header class="md:hidden flex items-center justify-between bg-[#0f172a] p-4 border-b border-cyan-800">
+        <button id="btnSidebarToggle" aria-label="Toggle menu" class="text-cyan-400 focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        <span class="font-semibold text-lg text-white">Dashboard Dosen</span>
+        <div></div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-10 space-y-6 bg-[#0f172a]">
+        <h1 class="text-2xl font-bold">Ringkasan Tugas Aktif</h1>
+
+        <!-- Kartu Tugas -->
+        <div class="bg-[#1e293b] p-6 rounded-xl border border-cyan-700 shadow-lg">
+          <div class="flex items-center space-x-4 mb-4">
+            <div class="text-cyan-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6h13M9 5v2m0 4v2" />
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-xl font-semibold">Judul Tugas</h2>
+              <p class="text-sm text-gray-400">Terkumpul &middot; 12 Mei 2024</p>
+            </div>
+          </div>
+          <p class="text-gray-300">Deskripsi singkat dari tugas</p>
+        </div>
+
+        <!-- Grafik Pembaruan -->
+        <div class="bg-[#1e293b] p-6 rounded-xl border border-cyan-700 shadow-lg">
+          <h2 class="text-lg font-semibold mb-4">Pembaruan Tugas</h2>
+          <!-- Placeholder grafik -->
+          <div class="h-40 flex items-end">
+            <svg class="w-full h-full" viewBox="0 0 200 100" preserveAspectRatio="none">
+              <path d="M0,90 Q30,60 50,70 T90,55 T130,75 T170,45 T200,50" stroke="#06b6d4" stroke-width="3" fill="none"/>
+            </svg>
+          </div>
+          <div class="flex justify-between text-sm text-gray-400 mt-2">
+            <span>Sen</span>
+            <span>Rab</span>
+            <span>Jum</span>
+            <span>Min</span>
+            <span>Rab</span>
+          </div>
+        </div>
+      </main>
+
+    </div>
+  </div>
+
+  <script>
+    const btnToggle = document.getElementById('btnSidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+
+    btnToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('-translate-x-full');
+    });
+  </script>
+
+</body>
+</html>

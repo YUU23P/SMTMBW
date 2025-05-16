@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Mahasiswa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0f172a] text-white font-sans">
+
+  <div class="flex min-h-screen">
+
+    <!-- Sidebar (Desktop) -->
+    <aside class="hidden md:block w-64 bg-[#0f172a] border-r border-cyan-800 p-6 space-y-6">
+      <div class="text-center">
+        <img src="https://i.pravatar.cc/100?img=11" alt="Foto Dosen" class="w-20 h-20 rounded-full mx-auto mb-2">
+        <h2 class="font-semibold text-lg">Dr. Ari Saputra</h2>
+        <p class="text-sm text-gray-400">Dosen</p>
+      </div>
+
+      <nav class="space-y-2">
+        <a href="dashboard.html" class="flex items-center px-4 py-2 hover:bg-gray-800 rounded-lg">
+          <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18" /></svg>
+          Dashboard
+        </a>
+        <a href="tugas.html" class="flex items-center px-4 py-2 hover:bg-gray-800 rounded-lg">
+          <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-6h13M9 5v2m0 4v2" /></svg>
+          Tugas
+        </a>
+        <a href="pemberitahuan.html" class="flex items-center px-4 py-2 hover:bg-gray-800 rounded-lg">
+          <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405M19.595 13.59L15 9m0 0H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6z" /></svg>
+          Pembaharuan
+        </a>
+        <a href="mahasiswa.html" class="flex items-center px-4 py-2 bg-cyan-600 rounded-lg">
+          <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 15c2.21 0 4.29.535 6.121 1.484M15 12a3 3 0 10-6 0 3 3 0 006 0z" /></svg>
+          Mahasiswa
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Overlay + Sidebar (Mobile) -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden" onclick="toggleSidebar()"></div>
+
+    <aside id="mobileSidebar" class="fixed top-0 left-0 w-64 h-full bg-[#0f172a] p-6 z-50 transform -translate-x-full transition-transform duration-300 md:hidden">
+      <div class="text-center mb-6">
+        <img src="https://i.pravatar.cc/100?img=11" alt="Foto Dosen" class="w-20 h-20 rounded-full mx-auto mb-2">
+        <h2 class="font-semibold text-lg">Dr. Ari Saputra</h2>
+        <p class="text-sm text-gray-400">Dosen</p>
+      </div>
+
+      <nav class="space-y-2">
+        <a href="dashboard.html" class="flex items-center px-4 py-2 hover:bg-gray-800 rounded-lg">
+          Dashboard
+        </a>
+        <a href="tugas.html" class="flex items-center px-4 py-2 hover:bg-gray-800 rounded-lg">
+          Tugas
+        </a>
+        <a href="pemberitahuan.html" class="flex items-center px-4 py-2 hover:bg-gray-800 rounded-lg">
+          Pembaharuan
+        </a>
+        <a href="mahasiswa.html" class="flex items-center px-4 py-2 bg-cyan-600 rounded-lg">
+          Mahasiswa
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+
+      <!-- Top Bar (Mobile) -->
+      <header class="md:hidden flex items-center justify-between bg-[#0f172a] p-4 border-b border-cyan-800">
+        <button onclick="toggleSidebar()" aria-label="Toggle menu" class="text-cyan-400 focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        <span class="font-semibold text-lg text-white">Dashboard Dosen</span>
+        <div></div>
+      </header>
+
+      <!-- Main -->
+      <main class="flex-1 p-10 space-y-6">
+        <div class="flex justify-between items-center">
+          <h1 class="text-2xl font-bold">Daftar Mahasiswa</h1>
+          <button class="bg-cyan-600 text-white px-4 py-2 rounded-lg hover:bg-cyan-700">+ Tambah Mahasiswa</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card Mahasiswa -->
+          <div class="bg-[#1e293b] rounded-xl p-5 shadow-md border border-cyan-700">
+            <div class="flex items-center space-x-4">
+              <img src="https://i.pravatar.cc/80?img=21" class="w-16 h-16 rounded-full" />
+              <div>
+                <h2 class="font-semibold text-lg">Siti Nurhaliza</h2>
+                <p class="text-sm text-gray-400">22100001</p>
+                <p class="text-xs text-green-400">3 Tugas Terkumpul</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-[#1e293b] rounded-xl p-5 shadow-md border border-cyan-700">
+            <div class="flex items-center space-x-4">
+              <img src="https://i.pravatar.cc/80?img=22" class="w-16 h-16 rounded-full" />
+              <div>
+                <h2 class="font-semibold text-lg">John Doe</h2>
+                <p class="text-sm text-gray-400">22100002</p>
+                <p class="text-xs text-yellow-400">1 Tugas Belum Terkumpul</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-[#1e293b] rounded-xl p-5 shadow-md border border-cyan-700">
+            <div class="flex items-center space-x-4">
+              <img src="https://i.pravatar.cc/80?img=23" class="w-16 h-16 rounded-full" />
+              <div>
+                <h2 class="font-semibold text-lg">Lisa Ann</h2>
+                <p class="text-sm text-gray-400">22100003</p>
+                <p class="text-xs text-green-400">Semua Tugas Terkumpul</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+    </div>
+  </div>
+
+  <!-- JS Sidebar Toggle -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('mobileSidebar');
+      const overlay = document.getElementById('overlay');
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+    }
+  </script>
+
+</body>
+</html>

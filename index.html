@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Mahasiswa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0D1B2A] min-h-screen flex items-center justify-center font-sans">
+
+  <div class="bg-[#0F2235] text-white rounded-2xl shadow-lg flex flex-col md:flex-row w-full max-w-4xl overflow-hidden">
+    
+    <!-- Kiri: Gambar dan Judul -->
+    <div class="md:w-1/2 flex flex-col items-center justify-center p-8 space-y-4">
+      <img src="foto/kampus2.png" alt="Ilustrasi Mahasiswa" class="w-48 h-48">
+      <h2 class="text-2xl md:text-3xl font-semibold text-center leading-tight">
+        Sistem Monitoring<br> Tugas Mahasiswa<br> Berbasis Web
+      </h2>
+    </div>
+
+    <!-- Kanan: Form Login -->
+    <div class="md:w-1/2 bg-[#0F2235] p-8 flex flex-col justify-center">
+      <h2 class="text-3xl font-semibold mb-6">Login</h2>
+      <form id="loginForm" class="flex flex-col space-y-4">
+        <input type="email" placeholder="Email" class="bg-[#112B45] text-white px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400" required />
+        <input type="password" placeholder="Kata Sandi" class="bg-[#112B45] text-white px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400" required />
+        <button type="submit" class="bg-sky-500 hover:bg-sky-600 text-white py-3 rounded-md font-semibold transition">
+          Masuk
+        </button>
+      </form>
+    </div>
+
+  </div>
+
+  <script>
+    const form = document.getElementById("loginForm");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = form.querySelector('input[type="email"]').value;
+      const password = form.querySelector('input[type="password"]').value;
+
+      const validAccounts = [
+        { email: "mahasiswa@example.com", password: "12345678" },
+        { email: "admin@kampus.ac.id", password: "admin123" }
+      ];
+
+      const isValid = validAccounts.some(account =>
+        account.email === email && account.password === password
+      );
+
+      if (isValid) {
+        // Redirect ke dashboard.html
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Email atau kata sandi salah!");
+      }
+    });
+  </script>
+
+</body>
+</html>
